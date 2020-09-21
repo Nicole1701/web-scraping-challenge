@@ -83,7 +83,7 @@ def mars_facts():
     facts_df.columns = ['Category', 'Value']
 
     # Save table as html
-    mars_table = facts_df.to_html(index = False)
+    mars_table = facts_df.to_html(index = False, classes="table table-striped")
 
     # Return result
     return mars_table

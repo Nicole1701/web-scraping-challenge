@@ -3,10 +3,10 @@ from flask_pymongo import PyMongo
 import scrape_mars
 from jinja2 import Environment, PackageLoader, select_autoescape
 
-env = Environment(
-    loader=PackageLoader('scrape_mars', 'template'),
-    autoescape=select_autoescape(['html', 'xml'])
-)
+# env = Environment(
+#     loader=PackageLoader('scrape_mars', 'template'),
+#     autoescape=select_autoescape(['html', 'xml'])
+# )
 
 # Create an instance of Flask
 app = Flask(__name__)
