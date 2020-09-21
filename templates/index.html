@@ -10,13 +10,11 @@
 </head>
 
 <body>
-  <div class="container-fluid">
-
+  <div class="container">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get New Data</a></p>
     </div>
-
     <!-- Mars News -->
     {% if mars %}
     <div class="row" id="mars_news">
@@ -30,21 +28,40 @@
     <!-- Featured Image-->
     <div class="container">
       <div class="row" id="mars_image">
-          <div class="col-lg-8 col-md-8 col-sm-12">
-          <h1>Featured Mars Image</h1>
-            <img src="{{mars.featured_url}}" class="img-responsive" style="max-width:100%; max-height: auto;" alt="Featured Mars Image"/>
-          </div>
-         <!--- Mars Facts -->
-            <div class="row" id="mars_facts">
-                <div class="col-lg-4 col-md-4 col-sm-12">
-                    <h2>Mars Facts</h2>
-                    {{mars.mars_table |safe}}
-                </div>
-            </div>  
+        <div class="col-lg-8 col-md-8 col-sm-12">
+        <h1>Featured Mars Image</h1>
+          <img src="{{mars.featured_url}}" style="max-width:100%; max-height: auto;" text-align=left; alt="Featured Mars Image"/>
+        </div>
+        <!--- Mars Facts -->
+          <br>
+          <div class="row" id="mars_facts">
+              <div class="col-lg-4 col-md-4 col-sm-12">
+                  <h2>Mars Facts</h2>
+                  {{mars.mars_table |safe}}
+              </div>
+          </div>  
       </div>
-    </div>
+    </div>    
+    <!-- Mars Hemispheres -->
+      <h2 style="text-align: center;">Mars Hemispheres</h2>
+        <div class="card-deck">
+          <hr>
+            <div class="col-md-12">
+              <div class="row" id="mars_hemispheres">
+                {% for hemisphere in mars.hemisphere_links %}
+                  <div class="col-md-6">
+                      <div class="card text-white bg-dark" style="margin: 30px;"></div>
+                        <img class="card-img-top" src="{{hemisphere.image}}" />
+                        <div class="card-body">
+                          <p class="card-text">{{hemisphere.title}}</p>
+                        </div>
+                      </div>
+                  </div>
+                {% endfor %}
+              </div>
+            </div>
+        </div>
     {% endif %}
-
   </div>
 </body>
 

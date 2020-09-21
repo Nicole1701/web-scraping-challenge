@@ -71,6 +71,8 @@ def mars_feature():
     # Return result
     return featured_url
 
+##### Mars Facts #####
+
 def mars_facts(): 
     facts_url = "https://space-facts.com/mars/"
 
@@ -86,6 +88,61 @@ def mars_facts():
     # Return result
     return mars_table
 
+##### Mars Hemisphere #####
+
+def mars_hemisphere(): 
+
+    # Initiate browser
+    browser = init_browser()
+
+    # Visit 
+    main_url = "https://astrogeology.usgs.gov/search/results?q=hemisphere+enhanced&k1=target&v1=Mars"
+    browser.visit(main_url)
+
+    # Scrape page into Soup
+    html = browser.html
+    soup = bs(html, "html.parser")
+
+    # URL for images
+    hemisphere_url = "https://astrogeology.usgs.gov"
+
+    # Find all the links
+    image_links = soup.find_all('div', class_='item')
+
+    # Create 
+    hemisphere_links = []
+
+    # Loop through the links and store the information
+
+    for link in image_links:
+        # Get Title
+        title = link.find("h3").text
+        
+        # Remove "Enhanced" from the title
+        title = title.split(' Enhanced')[0]
+        
+        # Get link for hemisphere page
+        hemi_link = link.find("a")["href"]
+        hemi_url = hemisphere_url + hemi_link
+        
+        # Click on image button and then click for more info
+        browser.visit(hemi_url)
+    
+        # Add time sleep to prevent erroring out        
+        time.sleep(2)
+    
+        # Scrape page into Soup
+        html = browser.html
+        soup = bs(html, "html.parser")
+    
+        # Find the full image url
+        full_image_url = soup.find("li").a['href']
+    
+        # Append both title and full image url to hemisphere links.
+        hemisphere_links.append({'title': title, 'image': full_image_url}) 
+
+    return hemisphere_links
+
 ##### Store all data #####
 
 # Create dictionary to store data
@@ -94,12 +151,14 @@ def scrape_all():
     news_headline, news_paragraph = mars_news()
     featured_url = mars_feature()
     mars_table = mars_facts()
+    hemisphere_links = mars_hemisphere()
 
     data = {
         "news_headline": news_headline,
         "news_paragraph": news_paragraph,
         "featured_url": featured_url,
-        "mars_table": mars_table
+        "mars_table": mars_table,
+        "hemisphere_links": hemisphere_links
     }
 
     # Close the browser after scraping
