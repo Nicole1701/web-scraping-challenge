@@ -44,18 +44,14 @@
     </div>    
     <!-- Mars Hemispheres -->
       <h2 style="text-align: center;">Mars Hemispheres</h2>
-        <div class="card-deck">
+        <div class="container-fluid">
           <hr>
             <div class="col-md-12">
               <div class="row" id="mars_hemispheres">
                 {% for hemisphere in mars.hemisphere_links %}
                   <div class="col-md-6">
-                      <div class="card text-white bg-dark" style="margin: 30px;"></div>
-                        <img class="card-img-top" src="{{hemisphere.image}}" />
-                        <div class="card-body">
-                          <p class="card-text">{{hemisphere.title}}</p>
-                        </div>
-                      </div>
+                    <img src="{{hemisphere.image}}" />
+                    <p>{{hemisphere.title}}</p>
                   </div>
                 {% endfor %}
               </div>
