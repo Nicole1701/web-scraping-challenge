@@ -6,13 +6,12 @@ from bs4 import BeautifulSoup as bs
 import time
 import pandas as pd
 
+
 # Define init_browser
 def init_browser():
     # @NOTE: Replace the path with your actual path to the chromedriver
     executable_path = {"executable_path": "../chromedriver_win32/chromedriver"}
     return Browser("chrome", **executable_path, headless=False)
-
-
 
 ##### NASA Mars News #####
 
@@ -32,21 +31,27 @@ def mars_news():
     soup = bs(html, "html.parser")
         
     # Get the headline and paragraph text
-    news_headline = soup.find("div", class_="content_title").text
+    headline_list = soup.find("div", class_="list_text")
+    news_headline = headline_list.find("div", class_="content_title").text
     news_paragraph = soup.find("div", class_="article_teaser_body").text
-
-    # Return headline and paragraph text
+    
     return news_headline, news_paragraph
 
-    # Exit Browser
-    browser.quit()
 
 ##### Store all data #####
 
 # Create dictionary to store data
-mars_data =  {
-    "news_headline" = news_headline,
-    "news_paragraph" = news_paragraph,
-    
+def scrape_all():
+    browser = init_browser()
+    news_headline, news_paragraph = mars_news()
 
-}
+
+    data = {
+        "news_headline": news_headline,
+        "news_paragraph": news_paragraph,
+    }
+
+    # Close the browser after scraping
+    browser.quit()
+
+    return data 
