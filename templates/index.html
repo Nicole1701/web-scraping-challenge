@@ -26,6 +26,23 @@
         <p>{{mars.news_paragraph}}</p>
       </div>
     </div>
+
+    <!-- Featured Image-->
+    <div class="container">
+      <div class="row" id="mars_image">
+          <div class="col-lg-8 col-md-8 col-sm-12">
+          <h1>Featured Mars Image</h1>
+            <img src="{{mars.featured_url}}" class="img-responsive" style="max-width:100%; max-height: auto;" alt="Featured Mars Image"/>
+          </div>
+         <!--- Mars Facts -->
+            <div class="row" id="mars_facts">
+                <div class="col-lg-4 col-md-4 col-sm-12">
+                    <h2>Mars Facts</h2>
+                    {{mars.mars_table |safe}}
+                </div>
+            </div>  
+      </div>
+    </div>
     {% endif %}
 
   </div>
