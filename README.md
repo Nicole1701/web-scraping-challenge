@@ -11,7 +11,7 @@ In this assignment, you will build a web application that scrapes various websit
  1. Clone the [web-scraping-challenge](https://github.com/Nicole1701/web-scraping-challenge) repository to your computer.
  2. You will need to have [Chromedriver](https://chromedriver.chromium.org/downloads) downloaded and installed to your computer. 
  3. Before executing the application, you will need to point the mission_to_mars.ipynb and scrape_mars.py to where you have it installed in the def  init_browser() section of the code.
- 4. You should also have mongo open and running on your computer in order to hold the scraped data.
+ 4. You should also have MongoDB open and running on your computer in order to hold the scraped data.
  5.  Launch the app.py application and then press the "Get New Data" button on the page. Note, it will take a few minutes to return the data, depending on your connection speed. Please be patient.
 
 <hr>

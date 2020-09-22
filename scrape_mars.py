@@ -147,7 +147,7 @@ def mars_hemisphere():
 
 # Create dictionary to store data
 def scrape_all():
-    browser = init_browser()
+    browser = init_browser()  
     news_headline, news_paragraph = mars_news()
     featured_url = mars_feature()
     mars_table = mars_facts()
