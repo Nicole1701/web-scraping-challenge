@@ -26,13 +26,6 @@ Complete your initial scraping using Jupyter Notebook, BeautifulSoup, Pandas, an
 
 -   Scrape the [NASA Mars News Site](https://mars.nasa.gov/news/) and collect the latest News Title and Paragraph Text. Assign the text to variables that you can reference later.
 
-```
-# Example:
-news_title = "NASA's Next Mars Mission to Investigate Interior of Red Planet"
-
-news_p = "Preparation of NASA's next spacecraft to Mars, InSight, has ramped up this summer, on course for launch next May from Vandenberg Air Force Base in central California -- the first interplanetary launch in history from America's West Coast."
-```
-
 #### JPL Mars Space Images - Featured Image
 
 -   Visit the url for JPL Featured Space Image [here](https://www.jpl.nasa.gov/spaceimages/?search=&category=Mars).
@@ -42,12 +35,6 @@ news_p = "Preparation of NASA's next spacecraft to Mars, InSight, has ramped up 
 -   Make sure to find the image url to the full size `.jpg` image.
     
 -   Make sure to save a complete url string for this image.
-    
-
-```
-# Example:
-featured_image_url = 'https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA16225_hires.jpg'
-```
 
 #### Mars Facts
 
@@ -65,17 +52,7 @@ featured_image_url = 'https://www.jpl.nasa.gov/spaceimages/images/largesize/PIA1
 -   Save both the image url string for the full resolution hemisphere image, and the Hemisphere title containing the hemisphere name. Use a Python dictionary to store the data using the keys `img_url` and `title`.
     
 -   Append the dictionary with the image url string and the hemisphere title to a list. This list will contain one dictionary for each hemisphere.
-    
 
-```
-# Example:
-hemisphere_image_urls = [
-    {"title": "Valles Marineris Hemisphere", "img_url": "..."},
-    {"title": "Cerberus Hemisphere", "img_url": "..."},
-    {"title": "Schiaparelli Hemisphere", "img_url": "..."},
-    {"title": "Syrtis Major Hemisphere", "img_url": "..."},
-]
-```
 
 ----------
 
@@ -91,3 +68,6 @@ Use MongoDB with Flask templating to create a new HTML page that displays all of
 -   Create a root route `/` that will query your Mongo database and pass the mars data into an HTML template to display the data.
     
 -   Create a template HTML file called `index.html` that will take the mars data dictionary and display all of the data in the appropriate HTML elements. Make sure your template will display a page even if the data is empty. Use the following as a guide for what the final product should look like, but feel free to create your own design.
+
+
+![Mission To Mars App](/images/mars_app_image.png)
