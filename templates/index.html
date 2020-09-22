@@ -11,7 +11,7 @@
 </head>
 
 <body style="background-image: url(../static/css/space_background.jpg);">
-  <div class="container" style= "background-color: whitesmoke">
+  <div class="container" style= "background-color: white">
     <div class="jumbotron text-center">
       <h1>Mission to Mars</h1>
       <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get New Data</a></p>
@@ -21,7 +21,7 @@
     <div class="row" id="mars_news">
       <div class="col-md-12">
         <h1>Latest Mars News</h1>
-        <h3 class="heading">{{mars.news_headline}}</h3>
+        <h3 style = 'font-weight: bold;' class="heading">{{mars.news_headline}}</h3>
         <p>{{mars.news_paragraph}}</p>
       </div>
     </div>
@@ -29,30 +29,31 @@
     <!-- Featured Image-->
     <div class="container">
       <div class="row" id="mars_image">
-        <div class="col-lg-8 col-md-8 col-sm-12">
+        <div class="col-lg-8 col-sm-12">
         <h1>Featured Mars Image</h1>
-          <img src="{{mars.featured_url}}" style="max-width:100%; max-height: auto;" text-align=left; alt="Featured Mars Image"/>
+          <img src="{{mars.featured_url}}" style="max-width:700px; max-height: auto; text-align:left;" alt="Featured Mars Image"/>
         </div>
         <!--- Mars Facts -->
           <br>
-          <div class="row" id="mars_facts" margin=auto>
-              <div class="col-lg-4 col-md-4 col-sm-12;">
+          <div class="row" id="mars_facts">
+              <div class="col-lg-4 col-sm-12;"  style = 'max-width: 30%; margin-right: 10px; margin-top: 10px'>
                   <h2>Mars Facts</h2>
                   {{mars.mars_table |safe}}
               </div>
           </div>  
       </div>
-    </div>    
+    </div>  
+    <hr>  
     <!-- Mars Hemispheres -->
       <h2 style="text-align: center;">Mars Hemispheres</h2>
-        <div class="container-fluid">
+        <div class="container">
           <hr>
             <div class="col-md-12">
               <div class="row" id="mars_hemispheres">
                 {% for hemisphere in mars.hemisphere_links %}
                   <div class="col-md-6">
-                    <img style = 'width: 100%'; src="{{hemisphere.image}}" />
-                    <p><h4 style = 'text-align: center; font-weight: bold; color:blueviolet'>{{hemisphere.title}}</h4></p>
+                    <img style = 'width: 100%; margin-top: 30px'; src="{{hemisphere.image}}" />
+                    <p><h4 style = 'text-align: center; font-weight: bold; color:black'>{{hemisphere.title}}</h4></p>
                   </div>
                 {% endfor %}
               </div>
