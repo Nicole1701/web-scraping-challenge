@@ -31,12 +31,12 @@
       <div class="row" id="mars_image">
         <div class="col-lg-8 col-sm-12">
         <h1>Featured Mars Image</h1>
-          <img src="{{mars.featured_url}}" style="max-width:700px; max-height: auto; text-align:left;" alt="Featured Mars Image"/>
+          <img src="{{mars.featured_url}}" style="max-width:700px; max-height: auto; margin-bottom: 30px; text-align:left;" alt="Featured Mars Image"/>
         </div>
         <!--- Mars Facts -->
           <br>
           <div class="row" id="mars_facts">
-              <div class="col-lg-4 col-sm-12;"  style = 'max-width: 30%; margin-right: 10px; margin-top: 10px'>
+              <div class="col-lg-4 col-sm-12;"  style = 'max-width: 350px; margin-right: 10px; margin-top: 10px'>
                   <h2>Mars Facts</h2>
                   {{mars.mars_table |safe}}
               </div>
@@ -52,8 +52,8 @@
               <div class="row" id="mars_hemispheres">
                 {% for hemisphere in mars.hemisphere_links %}
                   <div class="col-md-6">
-                    <img style = 'width: 100%; margin-top: 30px'; src="{{hemisphere.image}}" />
-                    <p><h4 style = 'text-align: center; font-weight: bold; color:black'>{{hemisphere.title}}</h4></p>
+                    <img style = 'margin-left: auto; margin-right: auto; max-width: 100%; margin-top: 20px'; src="{{hemisphere.image}}" />
+                    <p><h4 style = 'margin-left: auto; margin-right: auto; margin-bottom: 30px; text-align: center; font-weight: bold; color:black'>{{hemisphere.title}}</h4></p>
                   </div>
                 {% endfor %}
               </div>
